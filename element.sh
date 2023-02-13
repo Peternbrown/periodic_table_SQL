@@ -27,12 +27,12 @@ else
     echo "I could not find that element in the database."
   else
     # define necessary variables
-    NAME=$($PSQL "select name from elements where atomic_number=$ATOMIC_NUMBER")
-    SYMBOL=$($PSQL "select symbol from elements where atomic_number=$ATOMIC_NUMBER")
-    TYPE=$($PSQL "select type from types join properties on types.type_id=properties.type_id where atomic_number=$ATOMIC_NUMBER")
-    ATOMIC_MASS=$($PSQL "select atomic_mass from properties where atomic_number=$ATOMIC_NUMBER")
-    MELTING_PT=$($PSQL "select melting_point_celsius from properties where atomic_number=$ATOMIC_NUMBER")
-    BOILING_PT=$($PSQL "select boiling_point_celsius from properties where atomic_number=$ATOMIC_NUMBER")
+    NAME=$($PSQL "SELECT name FROM elements WHERE atomic_number=$ATOMIC_NUMBER")
+    SYMBOL=$($PSQL "SELECT symbol FROM elements WHERE atomic_number=$ATOMIC_NUMBER")
+    TYPE=$($PSQL "SELECT type FROM types JOIN properties on types.type_id=properties.type_id WHERE atomic_number=$ATOMIC_NUMBER")
+    ATOMIC_MASS=$($PSQL "SELECT atomic_mass FROM properties WHERE atomic_number=$ATOMIC_NUMBER")
+    MELTING_PT=$($PSQL "SELECT melting_point_celsius FROM properties WHERE atomic_number=$ATOMIC_NUMBER")
+    BOILING_PT=$($PSQL "SELECT boiling_point_celsius FROM properties WHERE atomic_number=$ATOMIC_NUMBER")
 
     # format necessary variables (get rid of leading spaces)
     ATOMIC_NUMBER_FORMAT=$(echo $ATOMIC_NUMBER | sed 's/ //g')
